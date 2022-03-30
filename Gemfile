@@ -20,7 +20,7 @@ gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem "bcrypt", "~> 3.1.7"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -29,7 +29,9 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :development, :test do
+  gem "rspec", "~> 3.5"
   gem "rspec-rails"
+  gem "rswag-specs"
   gem "factory_bot_rails"
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
 end
@@ -56,3 +58,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "active_model_serializers", "~> 0.10.0"
+gem "rswag-api"
+gem "rswag-ui"

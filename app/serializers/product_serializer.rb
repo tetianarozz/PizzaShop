@@ -18,8 +18,8 @@
 #
 #  fk_rails_...  (category_id => categories.id)
 #
-require "rails_helper"
+class ProductSerializer < ActiveModel::Serializer
+  attributes :id, :title, :description, :price
 
-RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  belongs_to :category
 end

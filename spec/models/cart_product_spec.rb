@@ -19,7 +19,7 @@
 #  fk_rails_...  (cart_id => carts.id)
 #  fk_rails_...  (product_id => products.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe CartProduct, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
