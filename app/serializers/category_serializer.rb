@@ -10,5 +10,5 @@
 class CategorySerializer < ActiveModel::Serializer
   attributes :id, :title
 
-  has_many :product
+  has_many :products
 end
