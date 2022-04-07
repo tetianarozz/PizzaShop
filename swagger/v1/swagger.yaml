@@ -1,28 +1,47 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: API v1
   version: v1
 paths:
-  "/categories":
+  "/api/v1/categories":
     get:
       summary: list categories
+      tags:
+      - Categories
       responses:
         '200':
-          description: successful
-  "/categories/{id}":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
+          description: List of categories
+  "/api/v1//categories/{id}":
     get:
-      summary: show category
+      summary: Retrieves a category
+      tags:
+      - Categories
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: successful
+          description: category found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+        '404':
+          description: category not found
+        '406':
+          description: unsupported accept header
   "/orders":
     post:
       summary: Creates a order
