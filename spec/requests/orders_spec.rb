@@ -13,6 +13,15 @@ RSpec.describe 'orders', type: :request do
           user_name: { type: :string },
           user_address: { type: :string },
           user_number: { type: :integer },
+          line_items_attributes: {
+            type: :array,
+            items: {
+              properties: {
+                quantity: { type: :string },
+                product_id: { type: :integer }
+              }
+            },
+          },
         },
         required: [ 'user_name', 'user_address', "user_number" ]
       }

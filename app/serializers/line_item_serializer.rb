@@ -19,7 +19,10 @@
 #  fk_rails_...  (order_id => orders.id)
 #  fk_rails_...  (product_id => products.id)
 #
-class LineItem < ApplicationRecord
-  belongs_to :product
-  belongs_to :order
+class LineItemSerializer < ActiveModel::Serializer
+  attributes :id, :quantity, :product, :created_at, :updated_at
+
+  def product
+    object.product
+  end
 end
