@@ -8,18 +8,12 @@
 #  user_number  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  cart_id      :bigint           not null
-#
-# Indexes
-#
-#  index_orders_on_cart_id  (cart_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (cart_id => carts.id)
 #
 class Order < ApplicationRecord
-  belongs_to :cart
+  has_many :line_items, dependent: :destroy
+  has_many :products, through: :line_items
+
+  accepts_nested_attributes_for :line_items
 
   validates :user_name, :user_address, :user_number, presence: true
 end

@@ -23,6 +23,33 @@ paths:
       responses:
         '200':
           description: successful
+  "/orders":
+    post:
+      summary: Creates a order
+      tags:
+      - Order
+      parameters: []
+      responses:
+        '201':
+          description: blog created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+                user_address:
+                  type: string
+                user_number:
+                  type: integer
+              required:
+              - user_name
+              - user_address
+              - user_number
   "/products":
     get:
       summary: list products
