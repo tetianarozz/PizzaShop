@@ -1,7 +1,6 @@
 module Api
   module V1
     class OrdersController < ApiController
-
       def create
         @order = Order.new(order_params)
 
