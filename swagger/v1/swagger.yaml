@@ -12,7 +12,7 @@ paths:
       responses:
         '200':
           description: List of categories
-  "/api/v1//categories/{id}":
+  "/api/v1/categories/{id}":
     get:
       summary: Retrieves a category
       tags:
@@ -77,25 +77,32 @@ paths:
               - user_name
               - user_address
               - user_number
-  "/products":
+  "/api/v1/products":
     get:
       summary: list products
+      tags:
+      - Products
       responses:
         '200':
-          description: successful
-  "/products/{id}":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
+          description: List of products
+  "/api/v1/products/{id}":
     get:
-      summary: show product
+      summary: Retrieves a products
+      tags:
+      - Products
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
-          description: successful
+          description: category found
+        '404':
+          description: product not found
+        '406':
+          description: unsupported accept header
 servers:
 - url: http://{defaultHost}
   variables:

@@ -12,7 +12,7 @@ RSpec.describe "categories", type: :request do
     end
   end
 
-  path "/api/v1//categories/{id}" do
+  path "/api/v1/categories/{id}" do
     get "Retrieves a category" do
       tags "Categories"
       produces "application/json"

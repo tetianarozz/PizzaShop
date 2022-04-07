@@ -1,36 +1,35 @@
 require "swagger_helper"
 
 RSpec.describe "products", type: :request do
-  path "/products" do
+  path "/api/v1/products" do
     get("list products") do
-      response(200, "successful") do
-        after do |example|
-          example.metadata[:response][:content] = {
-            "application/json" => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+      tags "Products"
+      produces "application/json"
+
+      response("200", "List of products") do
         run_test!
       end
     end
   end
 
-  path "/products/{id}" do
-    # You'll want to customize the parameter types...
-    parameter name: "id", in: :path, type: :string, description: "id"
+  path "/api/v1/products/{id}" do
+    get "Retrieves a products" do
+      tags "Products"
+      produces "application/json"
+      parameter name: :id, in: :path, type: :string
 
-    get("show product") do
-      response(200, "successful") do
-        let(:id) { "123" }
+      response "200", "category found" do
+        let(:id) { Product.create(description: "text", price: 100, title: "foo").id }
+        run_test!
+      end
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            "application/json" => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+      response "404", "product not found" do
+        let(:id) { "invalid" }
+        run_test!
+      end
+
+      response "406", "unsupported accept header" do
+        let(:'Accept') { "application/foo" }
         run_test!
       end
     end
