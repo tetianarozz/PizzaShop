@@ -1,0 +1,13 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<% if current_admin %>
+  <p>Helo <%= current_admin.email %>!</p>
+  <p>You have successfully authenticated</p>
+  <p>You are <%= current_admin.role %>!</p>
+  <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
+<% else %>
+  <p>You are not signed in</p>
+  <%= link_to "Sign Up!", new_admin_registration_path %>
+  <%= link_to "Login!", new_admin_session_path %>
+<% end %>
