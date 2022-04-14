@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+  devise_for :admins
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
   namespace "api" do
