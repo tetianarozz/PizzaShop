@@ -6,11 +6,10 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  login                  :string
-#  password_digest        :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :integer          default("main_admin")
+#  role                   :integer          default("manager")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

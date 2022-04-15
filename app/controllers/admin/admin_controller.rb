@@ -1,5 +1,6 @@
-class Admin::AdminController < ApplicationController
-  layout :admin
+# class Admin::AdminController < ApplicationController
+class AdminController < ApplicationController
+  #layout :admin
 
   before_action :set_admin, only: %i[ show edit update destroy ]
 
@@ -65,6 +66,6 @@ class Admin::AdminController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def admin_params
-    params.require(:admin).permit(:email, :login, :encrypted_password)
+    params.require(:admin).permit(:email, :login, :encrypted_password, :role)
   end
 end

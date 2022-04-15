@@ -6,11 +6,10 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  login                  :string
-#  password_digest        :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :integer          default("main_admin")
+#  role                   :integer          default("manager")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -24,15 +23,15 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum role: [:main_admin, :admin, :manager]
-  after_initialize :set_default_role, :if => :new_record?
+  enum role: [:manager, :admin, :main_admin]
+  # after_initialize :set_default_role, :if => :new_record?
 
   #has_secure_password
   has_many :promo_codes
 
-  #validates :login, :password_digest, :role, presence: true
+  validates :login, :role, presence: true
 
-  def set_default_role
-    self.role ||= :admin
-  end
+  # def set_default_role
+  #   self.role ||= :admin #if self.attributes.include? 'role'
+  # end
 end

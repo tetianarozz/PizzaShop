@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_04_14_131528) do
 
   create_table "admins", force: :cascade do |t|
     t.string "login"
-    t.string "password_digest"
     t.integer "role", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
