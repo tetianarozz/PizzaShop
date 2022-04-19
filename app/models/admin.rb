@@ -31,6 +31,29 @@ class Admin < ApplicationRecord
 
   validates :login, :role, presence: true
 
+  attr_accessor :login
+
+  def login
+    :login || self.login || self.email
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if (login = conditions.delete(:login))
+      where(conditions.to_h).where(["lower(login) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    elsif conditions.has_key?(:login) || conditions.has_key?(:email)
+      where(conditions.to_h).first
+    end
+  end
+
+  validate :validate_login
+
+  def validate_login
+    if Admin.where(email: login).exists?
+      errors.add(:login, :invalid)
+    end
+  end
+
   # def set_default_role
   #   self.role ||= :admin #if self.attributes.include? 'role'
   # end
