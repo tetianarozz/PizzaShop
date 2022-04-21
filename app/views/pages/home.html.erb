@@ -1,13 +1,12 @@
-<h1>Pages#home</h1>
-<h1><%= current_admin&.login %></h1>
+<h1><%= current_user&.login %></h1>
 
-<% if current_admin %>
-  <p>Hello <%= current_admin.email %>!</p>
+<% if current_user %>
+  <p>Hello <%= current_user.email %>!</p>
   <p>You have successfully authenticated</p>
-  <p>You are <%= current_admin.role %>!</p>
-  <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
+  <p>You are <%= current_user.role %>!</p>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
   <p>You are not signed in</p>
-  <%= link_to "Sign Up!", new_admin_registration_path %>
-  <%= link_to "Login!", new_admin_session_path %>
+  <%= link_to "Sign Up!", new_user_registration_path %>
+  <%= link_to "Login!", new_user_session_path %>
 <% end %>
