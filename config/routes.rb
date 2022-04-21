@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  devise_for :admins
+
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
   namespace "api" do
@@ -11,7 +11,15 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace "admin" do
+  scope module: 'administration' do
+    devise_for :admins, controllers: {
+      sessions: 'administration/sessions',
+      registrations: 'administration/registrations',
+      confirmations: 'administration/confirmations',
+      passwords: 'administration/passwords',
+      unlocks: 'administration/unlocks',
+    }
 
+    resources :admins
   end
 end

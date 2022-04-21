@@ -53,8 +53,4 @@ class Admin < ApplicationRecord
       errors.add(:login, :invalid)
     end
   end
-
-  # def set_default_role
-  #   self.role ||= :admin #if self.attributes.include? 'role'
-  # end
 end
