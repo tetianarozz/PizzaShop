@@ -10,8 +10,11 @@ Product.create(title: "new_product", description: "some text", price: 30, catego
 Product.create(title: "product 2", description: "some text", price: 20, category_id: 2)
 Product.create(title: "product 3", description: "some text", price: 100, category_id: 1)
 
-Order.delete_all
-Order.create(user_name: "Name", user_address: "address", user_number: "0937894561", line_items_attributes: [{product_id: 1},{product_id: 2}, {product_id: 3}])
-
 LineItem.delete_all
 LineItem.create(quantity: 2, product_id: 1, order_id: 1)
+
+Order.delete_all
+Order.create(user_name: "Ivan", user_address: "address", user_number: "0937894561", line_items_attributes: [{product_id: 1}, {product_id: 2}, {product_id: 3}])
+Order.create(user_name: "John", user_address: "some address", user_number: "093753", line_items_attributes: [{product_id: 2}, {product_id: 3}])
+
+
