@@ -43,11 +43,6 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
-  def order_params1
-    params.require(:order).permit(:user_name, :user_address, :user_number, product_ids: [])
-  end
-
   def order_params
     params.require(:order).permit(:user_name, :user_address, :user_number, line_items_attributes: [:product_id])
   end
