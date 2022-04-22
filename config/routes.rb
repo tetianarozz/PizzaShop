@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   scope module: 'admin' do
     devise_for :users
+    resources :orders
   end
 
   # scope module: 'administration' do
