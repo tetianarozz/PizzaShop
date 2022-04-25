@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   end
 
   scope module: 'admin' do
-    devise_for :users
+    resources :users
+
+    scope module: 'devise' do
+      devise_for :users
+    end
     resources :orders
   end
 
