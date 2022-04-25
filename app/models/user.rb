@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   has_many :promo_codes
 
-  validate :validate_username
+  # validate :validate_username
 
   attr_writer :login
 
@@ -36,11 +36,11 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  def validate_username
-    if User.where(email: username).exists?
-      errors.add(:username, :invalid)
-    end
-  end
+  # def validate_username
+  #   if User.where(email: username).exists?
+  #     errors.add(:username, :invalid)
+  #   end
+  # end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
