@@ -1,5 +1,7 @@
 class Admin::OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :authorize_user!
+  after_action :verify_authorized
 
   # GET /orders or /orders.json
   def index
@@ -45,5 +47,9 @@ class Admin::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:user_name, :user_address, :user_number, line_items_attributes: [:product_id])
+  end
+
+  def authorize_user!
+    authorize(@order || Order)
   end
 end

@@ -1,5 +1,8 @@
 class Admin::UsersController < ApplicationController
+  # before_action :require_authentication
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :authorize_user!
+  after_action :verify_authorized
 
   # GET /users or /users.json
   def index
@@ -71,5 +74,9 @@ class Admin::UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :role)
+  end
+
+  def authorize_user!
+    authorize(@user || User)
   end
 end
