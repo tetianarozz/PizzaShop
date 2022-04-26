@@ -20,16 +20,4 @@ Rails.application.routes.draw do
     resources :users
     resources :orders
   end
-
-  # scope module: 'administration' do
-  #   devise_for :admin, controllers: {
-  #     sessions: 'administration/sessions',
-  #     registrations: 'administration/registrations',
-  #     confirmations: 'administration/confirmations',
-  #     passwords: 'administration/passwords',
-  #     unlocks: 'administration/unlocks',
-  #   }
-  #
-  #   resources :admin
-  # end
 end
