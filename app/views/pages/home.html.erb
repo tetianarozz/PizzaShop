@@ -14,4 +14,7 @@
 <p> There is <%= @order&.count %>orders</p>
 
 <%= link_to "Orders", orders_path %> <br>
-<%= link_to "Users", users_path %>
+
+<% if current_user&.admin? %>
+  <%= link_to "Users", users_path %>
+<% end %>
