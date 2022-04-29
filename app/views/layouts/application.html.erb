@@ -10,9 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="beige">
 
-  <header class="p-3 bg-warning text-black-bold">
+  <header class="p-2 yellow text-black-bold sticky-top">
     <div class="container">
       <nav class="d-flex flex-wrap align-items-center fw-bold">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2  mb-md-0 justify-content-lg-start">
@@ -31,34 +31,26 @@
     </div>
   </header>
 
-  <div class="container-fluid">
-
-<!--    <nav class="nav flex-column">-->
-<!--      <a class="nav-link active" aria-current="page" href="#">Active</a>-->
-<!--      <a class="nav-link" href="#">Link</a>-->
-<!--      <a class="nav-link" href="#">Link</a>-->
-<!--      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-<!--    </nav>-->
-
+  <div class="container-fluid mt-4">
     <nav class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block grey sidebar collapse mt-4">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <%= link_to 'Home', root_url, class: "nav-link text-dark"%>
+              <%= link_to 'Home', root_url, class: "nav-link text-b"%>
             </li>
             <li class="nav-item">
-              <%= link_to "Orders", orders_path, class: "nav-link text-dark"%>
+              <%= link_to "Orders", orders_path, class: "nav-link text-blue"%>
             </li>
             <li class="nav-item">
-              <%= link_to "Users", users_path, class: "nav-link text-dark"%>
+              <%= link_to "Users", users_path, class: "nav-link text-b"%>
             </li>
           </ul>
         </div>
       </nav>
     </nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 beige">
 
       <%= yield %>
 

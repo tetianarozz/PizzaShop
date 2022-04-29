@@ -14,3 +14,26 @@
  *= require_self
  *= require bootstrap
  */
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+}
+
+.yellow {
+    background: #FDBE2B;
+}
+
+.grey {
+    background: #DADBBD;
+}
+
+.beige {
+    background: #F2F2F2;
+}
