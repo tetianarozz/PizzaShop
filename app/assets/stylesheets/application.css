@@ -37,3 +37,8 @@
 .beige {
     background: #F2F2F2;
 }
+
+img.product-show {
+    width: 100px;
+    height: auto;
+}

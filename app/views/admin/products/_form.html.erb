@@ -10,8 +10,13 @@
   </div>
 
   <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <% if product.image? %>
+      <%= label_tag :remove_image %>
+      <%= f.check_box :remove_image %>
+    <% else %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    <% end %>
   </div>
 
   <div>
