@@ -1,33 +1,66 @@
 <%= form_for product do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :title %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :title %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :description %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :description %>
+    </div>
   </div>
 
-  <div>
+  <div class="mb-3 row">
     <% if product.image? %>
-      <%= label_tag :remove_image %>
-      <%= f.check_box :remove_image %>
+        <div class="col-sm-2 col-form-label">
+            <%= label_tag :remove_image %>
+        </div>
+
+        <div class="col-sm-10">
+          <%= f.check_box :remove_image %>
+        </div>
     <% else %>
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+        <div class="mb-3 row">
+          <div class="col-sm-2 col-form-label">
+            <%= f.label :image %>
+          </div>
+
+          <div class="col-sm-10">
+            <%= f.file_field :image %>
+          </div>
+        </div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :price %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :price %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label :category_id %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :category_id %>
+    </div>
   </div>
 
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary btn-md'%>
 <% end %>

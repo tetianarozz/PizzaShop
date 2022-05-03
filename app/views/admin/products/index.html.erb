@@ -1,31 +1,32 @@
-<h1>Products:</h1>
+<h1 class="text-center">Products:</h1>
 
-<% @products.each do |product| %>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  </thead>
 
-  <h2><%= product.title %>: </h2>
-
-  <%= image_tag(product.image.url, class: "product-show", alt: 'Image') if product.image? %>
-  <table>
-    <thead>
-    <tr>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
+  <% @products.each do |product| %>
     <tbody>
     <tr>
+      <td><%= image_tag(product.image.url, class: "product-show", alt: 'Image') if product.image? %> </td>
+      <td><%= product.title %></td>
+
       <td><%= product.description %></td>
       <td><%= product.price %></td>
-      <td><%= product.category.title %></td>
+    </tr>
+
+    <tr>
+      <td><%= link_to 'Edit Product', edit_product_path(product)%></td>
     </tr>
     </tbody>
+  <% end %>
   </table>
 
-  <%= link_to 'Edit Product', edit_product_path(product)%>
-<% end %>
 
 <%= link_to 'New Product', new_product_path %>
 <%= link_to "Back", :back %>
