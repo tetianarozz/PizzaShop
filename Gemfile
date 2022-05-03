@@ -63,3 +63,5 @@ gem "rswag-api"
 gem "rswag-ui"
 gem 'devise'
 gem "pundit", "~> 2.2"
+gem 'carrierwave', '~> 2.0'
+

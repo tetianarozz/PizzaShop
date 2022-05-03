@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :text
+#  image       :string
 #  price       :float
 #  title       :string
 #  created_at  :datetime         not null
@@ -30,4 +31,6 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
 
   validates :title, uniqueness: true, length: { minimum: 3 }
+
+  mount_uploader :image, ImageUploader
 end
