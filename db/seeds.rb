@@ -40,7 +40,7 @@ LineItem.create(quantity: 1, product_id: 6, order_id: 5)
 
 Order.delete_all
 Order.create(user_name: "Ivan", user_address: "66 Chapel Drive West Des Moines", user_number: "0937894561", line_items_attributes: [{product_id: 1, quantity: 2}, {product_id: 4, quantity: 1}, {product_id: 7, quantity: 3}])
-Order.create(user_name: "John", user_address: "2 Nichols Road West Chester", user_number: "0507530000", line_items_attributes: [{product_id: 2}, {product_id: 5}])
-Order.create(user_name: "Marry", user_address: "8869 Grove Court King Of Prussia", user_number: "0937532288", line_items_attributes: [{product_id: 3}, {product_id: 5}, {product_id: 7}])
-Order.create(user_name: "Emma", user_address: "7633 Central Ave. Elk Grove Village", user_number: "0933355753", line_items_attributes: [{product_id: 2}, {product_id: 4}, {product_id: 6}])
-Order.create(user_name: "Clarice", user_address: "48 Paris Hill Ave. Bismarck", user_number: "0967755553", line_items_attributes: [{product_id: 1}, {product_id: 6}])
+Order.create(user_name: "John", user_address: "2 Nichols Road West Chester", user_number: "0507530000", line_items_attributes: [{product_id: 2, quantity: 1}, {product_id: 5, quantity: 2}])
+Order.create(user_name: "Marry", user_address: "8869 Grove Court King Of Prussia", user_number: "0937532288", line_items_attributes: [{product_id: 3, quantity: 1}, {product_id: 5, quantity: 2}, {product_id: 7, quantity: 2}])
+Order.create(user_name: "Emma", user_address: "7633 Central Ave. Elk Grove Village", user_number: "0933355753", line_items_attributes: [{product_id: 2, quantity: 2}, {product_id: 4, quantity: 3}, {product_id: 6, quantity: 5}])
+Order.create(user_name: "Clarice", user_address: "48 Paris Hill Ave. Bismarck", user_number: "0967755553", line_items_attributes: [{product_id: 1, quantity: 1}, {product_id: 6, quantity: 1}])

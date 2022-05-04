@@ -46,7 +46,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_name, :user_address, :user_number, line_items_attributes: [:product_id])
+    params.require(:order).permit(:user_name, :user_address, :user_number, line_items_attributes: [:product_id, :quantity])
   end
 
   def authorize_user!

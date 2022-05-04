@@ -35,23 +35,27 @@
     <thead>
     <tr>
       <th>Title</th>
+      <th>Quantity</th>
       <th>Price</th>
+      <th>Total price</th>
     </tr>
     </thead>
 
 
     <tbody>
-      <% @orders.each do |p| %>
+      <% @order.line_items.each do |p| %>
         <tr>
-            <td><%= p.products.title %></td>
-            <td><%= p.line_items.quantity %></td>
-            <td><%= p.products.price %> $</td>
+            <td><%= p.product.title %></td>
+            <td><%= p.quantity %></td>
+            <td><%= p.product.price %> $</td>
+            <td><%= p.total_price %> $</td>
         </tr>
       <% end %>
 
       <tr>
-        <th>Total price:</th>
-        <td><%= @order.total_price %> $</td>
+        <th>Order total price:</th>
+        <td></td><td></td>
+        <td colspan="3" ><%= @order.total_price %> $</td>
       </tr>
     </tbody>
   </table>
