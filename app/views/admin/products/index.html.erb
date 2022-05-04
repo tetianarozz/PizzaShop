@@ -1,32 +1,46 @@
-<h1 class="text-center">Products:</h1>
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col col-md-3 col-auto me-auto">
+      <h1 class="h3 mb-3">Products</h1>
+    </div>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th></th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-  </thead>
-
-  <% @products.each do |product| %>
-    <tbody>
-    <tr>
-      <td><%= image_tag(product.image.url, class: "product-show", alt: 'Image') if product.image? %> </td>
-      <td><%= product.title %></td>
-
-      <td><%= product.description %></td>
-      <td><%= product.price %></td>
-    </tr>
-
-    <tr>
-      <td colspan="4"><%= link_to 'Edit Product', edit_product_path(product)%></td>
-    </tr>
-    </tbody>
-  <% end %>
-  </table>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th></th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
 
 
-<%= link_to 'New Product', new_product_path %>
-<%= link_to "Back", :back %>
+              <tbody>
+                <% @products.each do |product| %>
+                <tr>
+                  <td><%= product.id %></td>
+                  <td><%= image_tag(product.image.url, class: "product-show", alt: 'Image') if product.image? %> </td>
+                  <td><%= product.title %></td>
+
+                  <td><%= product.description %></td>
+                  <td><%= product.price %></td>
+                  <td><%= link_to 'Edit Product', edit_product_path(product)%> <%= link_to 'Show Product', product_path(product)%></td>
+                </tr>
+                <% end %>
+              </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'New Product', new_product_path %>
+  <%= link_to "Back", :back %>
+</div>
