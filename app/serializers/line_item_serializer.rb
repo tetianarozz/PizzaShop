@@ -20,9 +20,7 @@
 #  fk_rails_...  (product_id => products.id)
 #
 class LineItemSerializer < ActiveModel::Serializer
-  attributes :id, :quantity, :product, :created_at, :updated_at
+  attributes :id, :quantity, :created_at, :updated_at
 
-  def product
-    object.product
-  end
+  belongs_to :product
 end

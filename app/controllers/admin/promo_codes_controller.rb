@@ -1,5 +1,5 @@
 class Admin::PromoCodesController < ApplicationController
-  before_action :set_promo_code, only: %i[ update destroy ]
+  before_action :set_promo_code, only: %i[update destroy]
 
   def create
     @promo_code = PromoCode.create(promo_code_params)
