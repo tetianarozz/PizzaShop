@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  root 'pages#home'
+  root "pages#home"
 
   mount Rswag::Ui::Engine => "/api-docs"
   mount Rswag::Api::Engine => "/api-docs"
@@ -12,8 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  scope module: 'admin' do
-    scope module: 'devise' do
+  scope module: "admin" do
+    scope module: "devise" do
       devise_for :users
     end
 

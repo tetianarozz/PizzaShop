@@ -1,5 +1,4 @@
 class ImageUploader < CarrierWave::Uploader::Base
-
   storage :file
 
   # def store_dir
@@ -7,7 +6,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   def store_dir
-    'uploads/images'
+    "uploads/images"
   end
-
 end

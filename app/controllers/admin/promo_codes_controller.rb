@@ -14,6 +14,7 @@ class Admin::PromoCodesController < ApplicationController
   end
 
   private
+
   def set_promo_code
     @promo_code = PromoCode.find(params[:id])
   end
